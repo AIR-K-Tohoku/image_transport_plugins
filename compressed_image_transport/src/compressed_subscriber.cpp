@@ -81,6 +81,10 @@ void CompressedSubscriber::internalCallback(const sensor_msgs::CompressedImageCo
                                             const Callback& user_cb)
 
 {
+  if (!SimpleSubscriberPlugin<sensor_msgs::CompressedImage>::enable())
+  {
+    return;
+  }
 
   cv_bridge::CvImagePtr cv_ptr(new cv_bridge::CvImage);
 
